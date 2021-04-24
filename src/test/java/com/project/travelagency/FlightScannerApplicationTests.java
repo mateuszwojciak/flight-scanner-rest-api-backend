@@ -1,4 +1,4 @@
-package com.project.flightscanner;
+package com.project.travelagency;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
