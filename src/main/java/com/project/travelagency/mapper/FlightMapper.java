@@ -5,7 +5,8 @@ import com.project.travelagency.domain.FlightDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class FlightMapper {
@@ -17,8 +18,24 @@ public class FlightMapper {
                 flightDto.getPrice(),
                 flightDto.getStartFlightDate(),
                 flightDto.getEndFlightDate(),
-                flightDto.getPlaneNumber()
+                flightDto.getPlaneNumber(),
+                flightDto.getTravelList()
         );
+    }
+
+    public List<Flight> mapToFlightList(final List<FlightDto> flightDtoList) {
+        return flightDtoList.stream()
+                .map(flightDto -> new Flight(
+                        flightDto.getFlightId(),
+                        flightDto.getOrigin(),
+                        flightDto.getDestination(),
+                        flightDto.getPrice(),
+                        flightDto.getStartFlightDate(),
+                        flightDto.getEndFlightDate(),
+                        flightDto.getPlaneNumber(),
+                        flightDto.getTravelList()))
+                .collect(toList());
+
     }
 
     public FlightDto mapToFlightDto(final Flight flight) {
@@ -29,13 +46,22 @@ public class FlightMapper {
                 flight.getPrice(),
                 flight.getStartFlightDate(),
                 flight.getEndFlightDate(),
-                flight.getPlaneNumber()
+                flight.getPlaneNumber(),
+                flight.getTravelList()
         );
     }
 
     public List<FlightDto> mapToFlightDtoList(final List<Flight> flightList) {
         return flightList.stream()
-                .map(this::mapToFlightDto)
-                .collect(Collectors.toList());
+                .map(flight -> new FlightDto(
+                        flight.getFlightId(),
+                        flight.getOrigin(),
+                        flight.getDestination(),
+                        flight.getPrice(),
+                        flight.getStartFlightDate(),
+                        flight.getEndFlightDate(),
+                        flight.getPlaneNumber(),
+                        flight.getTravelList()))
+                .collect(toList());
     }
 }

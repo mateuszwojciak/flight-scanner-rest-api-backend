@@ -11,21 +11,23 @@ import java.util.stream.Collectors;
 public class UserMapper {
     public User mapToUser(final UserDto userDto) {
         return new User(
-                userDto.getUserId,
-                userDto.getFirstName,
-                userDto.getLastName,
-                userDto.getPersonalId,
-                userDto.getAge
+                userDto.getUserId(),
+                userDto.getFirstName(),
+                userDto.getLastName(),
+                userDto.getPersonalId(),
+                userDto.getAge(),
+                userDto.getTravel()
         );
     }
 
     public UserDto mapToUserDto(final User user) {
         return new UserDto(
-                user.getUserId,
-                user.getFirstName,
-                user.getLastName,
-                user.getPersonalId,
-                user.getAge
+                user.getUserId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getPersonalId(),
+                user.getAge(),
+                user.getTravel()
         );
     }
 

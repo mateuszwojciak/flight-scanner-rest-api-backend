@@ -14,31 +14,33 @@ public class TravelMapper {
 
     public Travel mapToTravel(final TravelDto travelDto) {
         return new Travel(
-                travelDto.getId,
-                travelDto.getTripName,
-                travelDto.getPrice,
-                travelDto.getStartDate,
-                travelDto.getEndDate,
-                flightMapper.mapToFlight(travelDto.getFlightDto),
-                hotelMapper.mapToHotel(travelDto.getHotelDto),
-                userMapper.mapToUser(travelDto.getUserDto),
-                travelDto.getIsPaid,
-                travelDto.getIsHigherStandard
+                travelDto.getTravelId(),
+                travelDto.getTripName(),
+                travelDto.getDestination(),
+                travelDto.getPrice(),
+                travelDto.getStartDate(),
+                travelDto.getEndDate(),
+                flightMapper.mapToFlightList(travelDto.getFlightDtoList()),
+                hotelMapper.mapToHotelList(travelDto.getHotelDtoList()),
+                userMapper.mapToUser(travelDto.getUser()),
+                travelDto.isPaid(),
+                travelDto.isHigherStandard()
         );
     }
 
     public TravelDto mapToTravelDto(final Travel travel) {
         return new TravelDto(
-                travel.getId,
-                travel.getTripName,
-                travel.getPrice,
-                travel.getStartDate,
-                travel.getEndDate,
-                flightMapper.mapToFlightDto(travel.getFlight),
-                hotelMapper.mapToHotelDto(travel.getHotel),
-                userMapper.mapToUserDto(travel.getUser),
-                travel.getIsPaid,
-                travel.getIsHigherStandard
+                travel.getTravelId(),
+                travel.getTripName(),
+                travel.getDestination(),
+                travel.getPrice(),
+                travel.getStartDate(),
+                travel.getEndDate(),
+                flightMapper.mapToFlightDtoList(travel.getFlightList()),
+                hotelMapper.mapToHotelDtoList(travel.getHotelList()),
+                userMapper.mapToUserDto(travel.getUser()),
+                travel.isPaid(),
+                travel.isHigherStandard()
         );
     }
 

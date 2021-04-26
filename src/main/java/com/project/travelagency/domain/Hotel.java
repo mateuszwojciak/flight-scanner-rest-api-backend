@@ -1,23 +1,18 @@
 package com.project.travelagency.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
-@AllArgsConstructor
-@Getter
 @Setter
-@Entity
+@Entity(name = "hotel")
 public class Hotel {
     @Id
     @GeneratedValue
+    @Column(name = "HOTEL_ID", unique = true)
     private Long hotelId;
 
     @Column
@@ -29,4 +24,34 @@ public class Hotel {
     @Column
     private boolean isHigherStandard;
 
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "hotelList")
+    private List<Travel> travelList;
+
+    public Hotel(Long hotelId, String nameOfHotelChain, Integer capacity, boolean isHigherStandard, List<Travel> travelList) {
+        this.hotelId = hotelId;
+        this.nameOfHotelChain = nameOfHotelChain;
+        this.capacity = capacity;
+        this.isHigherStandard = isHigherStandard;
+        this.travelList = travelList;
+    }
+
+    public Long getHotelId() {
+        return hotelId;
+    }
+
+    public String getNameOfHotelChain() {
+        return nameOfHotelChain;
+    }
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public boolean isHigherStandard() {
+        return isHigherStandard;
+    }
+
+    public List<Travel> getTravelList() {
+        return travelList;
+    }
 }

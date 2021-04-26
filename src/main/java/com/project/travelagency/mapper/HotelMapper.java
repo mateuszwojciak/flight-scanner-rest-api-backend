@@ -5,31 +5,50 @@ import com.project.travelagency.domain.HotelDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class HotelMapper {
     public Hotel mapToHotel(final HotelDto hotelDto) {
         return new Hotel(
-                hotelDto.getHotelId,
-                hotelDto.getNameOfHotelChain,
-                hotelDto.getCapacity,
-                hotelDto.getIsHigherStandard
+                hotelDto.getHotelId(),
+                hotelDto.getNameOfHotelChain(),
+                hotelDto.getCapacity(),
+                hotelDto.isHigherStandard(),
+                hotelDto.getTravelList()
         );
+    }
+
+    public List<Hotel> mapToHotelList(final List<HotelDto> hotelDtoList) {
+        return hotelDtoList.stream()
+                .map(hotelDto -> new Hotel(
+                        hotelDto.getHotelId(),
+                        hotelDto.getNameOfHotelChain(),
+                        hotelDto.getCapacity(),
+                        hotelDto.isHigherStandard(),
+                        hotelDto.getTravelList()))
+                .collect(toList());
     }
 
     public HotelDto mapToHotelDto(final Hotel hotel) {
         return new HotelDto(
-                hotel.getHotelId,
-                hotel.getNameOfHotelChain,
-                hotel.getCapacity,
-                hotel.getIsHigherStandard
+                hotel.getHotelId(),
+                hotel.getNameOfHotelChain(),
+                hotel.getCapacity(),
+                hotel.isHigherStandard(),
+                hotel.getTravelList()
         );
     }
 
     public List<HotelDto> mapToHotelDtoList(final List<Hotel> hotelList) {
         return hotelList.stream()
-                .map(this::mapToHotelDto)
-                .collect(Collectors.toList());
+                .map(hotel -> new HotelDto(
+                        hotel.getHotelId(),
+                        hotel.getNameOfHotelChain(),
+                        hotel.getCapacity(),
+                        hotel.isHigherStandard(),
+                        hotel.getTravelList()))
+                .collect(toList());
     }
 }
