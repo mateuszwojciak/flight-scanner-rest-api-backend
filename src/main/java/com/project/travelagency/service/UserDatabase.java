@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -17,6 +18,10 @@ public class UserDatabase {
 
     public List<User> showAllUsers(){
         return userRepository.findAll();
+    }
+
+    public Optional<User> showUser(final Long userId) {
+        return userRepository.findById(userId);
     }
 
     public void addUser(final User user) {

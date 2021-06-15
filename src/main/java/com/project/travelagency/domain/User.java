@@ -24,7 +24,7 @@ public class User {
     private String personalId;
 
     @Column
-    private Integer age;
+    private String email;
 
     @OneToMany(
             targetEntity = Travel.class,
@@ -34,12 +34,12 @@ public class User {
     )
     private List<Travel> travel;
 
-    public User(Long userId, String firstName, String lastName, String personalId, Integer age, List<Travel> travel) {
+    public User(Long userId, String firstName, String lastName, String personalId, String email, List<Travel> travel) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.personalId = personalId;
-        this.age = age;
+        this.email = email;
         this.travel = travel;
     }
 
@@ -59,8 +59,8 @@ public class User {
         return personalId;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getEmail() {
+        return email;
     }
 
     public List<Travel> getTravel() {

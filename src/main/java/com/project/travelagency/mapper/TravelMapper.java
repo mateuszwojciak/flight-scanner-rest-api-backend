@@ -1,6 +1,7 @@
 package com.project.travelagency.mapper;
 
 import com.project.travelagency.domain.*;
+import com.project.travelagency.domain.dto.TravelDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.project.travelagency.controller;
 
 import com.project.travelagency.domain.Hotel;
-import com.project.travelagency.domain.HotelDto;
+import com.project.travelagency.domain.dto.HotelDto;
 import com.project.travelagency.mapper.HotelMapper;
 import com.project.travelagency.service.HotelDatabase;
 import org.springframework.beans.factory.annotation.Autowired;

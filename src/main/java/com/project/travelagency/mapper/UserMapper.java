@@ -1,7 +1,7 @@
 package com.project.travelagency.mapper;
 
 import com.project.travelagency.domain.User;
-import com.project.travelagency.domain.UserDto;
+import com.project.travelagency.domain.dto.UserDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public class UserMapper {
                 userDto.getFirstName(),
                 userDto.getLastName(),
                 userDto.getPersonalId(),
-                userDto.getAge(),
+                userDto.getEmail(),
                 userDto.getTravel()
         );
     }
@@ -26,7 +26,7 @@ public class UserMapper {
                 user.getFirstName(),
                 user.getLastName(),
                 user.getPersonalId(),
-                user.getAge(),
+                user.getEmail(),
                 user.getTravel()
         );
     }

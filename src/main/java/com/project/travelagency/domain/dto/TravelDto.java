@@ -1,4 +1,4 @@
-package com.project.travelagency.domain;
+package com.project.travelagency.domain.dto;
 
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

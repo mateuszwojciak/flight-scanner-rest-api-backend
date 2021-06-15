@@ -1,5 +1,6 @@
-package com.project.travelagency.domain;
+package com.project.travelagency.domain.dto;
 
+import com.project.travelagency.domain.Travel;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -12,15 +13,15 @@ public class UserDto {
     private String firstName;
     private String lastName;
     private String personalId;
-    private Integer age;
+    private String email;
     private List<Travel> travel;
 
-    public UserDto(Long userId, String firstName, String lastName, String personalId, Integer age, List<Travel> travel) {
+    public UserDto(Long userId, String firstName, String lastName, String personalId, String email, List<Travel> travel) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.personalId = personalId;
-        this.age = age;
+        this.email = email;
         this.travel = travel;
     }
 
@@ -40,8 +41,8 @@ public class UserDto {
         return personalId;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getEmail() {
+        return email;
     }
 
     public List<Travel> getTravel() {

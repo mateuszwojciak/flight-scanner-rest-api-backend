@@ -1,5 +1,6 @@
-package com.project.travelagency.domain;
+package com.project.travelagency.domain.dto;
 
+import com.project.travelagency.domain.Travel;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
